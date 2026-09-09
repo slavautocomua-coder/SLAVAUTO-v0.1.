@@ -1,199 +1,669 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Слававто — автозапчастини та СТО</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<title>СлаваАвто — автозапчастини та СТО</title>
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            color: #222;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        header {
-            background: #111;
-            color: white;
-            padding: 20px 6%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f5f7;
+    color: #15191e;
+}
 
-        .logo {
-            font-size: 30px;
-            font-weight: bold;
-        }
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-        .logo span {
-            color: #e31b23;
-        }
+/* HEADER */
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 16px;
-        }
+header {
+    height: 82px;
+    background: #080b0f;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    border-bottom: 1px solid #292d32;
+}
 
-        .hero {
-            background: linear-gradient(120deg, #111, #333);
-            color: white;
-            padding: 90px 6%;
-            text-align: center;
-        }
+.logo {
+    font-size: 31px;
+    font-weight: 800;
+    white-space: nowrap;
+}
 
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
+.logo .white {
+    color: white;
+}
 
-        .hero h1 span {
-            color: #e31b23;
-        }
+.logo .red {
+    color: #ed1c24;
+}
 
-        .hero p {
-            font-size: 21px;
-            margin-bottom: 35px;
-        }
+.logo-sub {
+    font-size: 12px;
+    color: #bfc3c7;
+    margin-top: 2px;
+}
 
-        .button {
-            display: inline-block;
-            background: #e31b23;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+nav {
+    display: flex;
+    gap: 30px;
+}
 
-        .section {
-            padding: 60px 6%;
-            text-align: center;
-        }
+nav a {
+    font-size: 15px;
+    font-weight: 600;
+    transition: .2s;
+}
 
-        .section h2 {
-            font-size: 34px;
-            margin-bottom: 40px;
-        }
+nav a:hover {
+    color: #ed1c24;
+}
 
-        .cards {
-            display: flex;
-            gap: 25px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+.header-phone {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-weight: bold;
+}
 
-        .card {
-            background: white;
-            width: 280px;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-        }
+.phone-icon {
+    color: #ed1c24;
+    font-size: 24px;
+}
 
-        .card h3 {
-            margin-bottom: 15px;
-            color: #e31b23;
-        }
+/* HERO */
 
-        .contact {
-            background: #111;
-            color: white;
-        }
+.hero {
+    min-height: 430px;
+    background:
+        linear-gradient(90deg, rgba(5,7,9,.97) 0%, rgba(5,7,9,.88) 38%, rgba(5,7,9,.15) 75%),
+        url("https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=2000&q=85")
+        center/cover;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 50px 6%;
+}
 
-        footer {
-            background: #000;
-            color: #aaa;
-            text-align: center;
-            padding: 20px;
-        }
+.hero-content {
+    max-width: 700px;
+}
 
-        @media (max-width: 700px) {
-            .hero h1 {
-                font-size: 34px;
-            }
+.hero h1 {
+    font-size: 62px;
+    line-height: 1;
+    margin-bottom: 18px;
+}
 
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
+.hero h1 .white {
+    color: white;
+}
 
-            nav a {
-                margin: 0 8px;
-            }
-        }
-    </style>
+.hero h1 .red {
+    color: #ed1c24;
+}
+
+.hero h2 {
+    font-size: 24px;
+    margin-bottom: 32px;
+}
+
+.features {
+    display: flex;
+    gap: 35px;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.feature-icon {
+    color: #ed1c24;
+    font-size: 27px;
+}
+
+.button {
+    display: inline-block;
+    background: #ed1c24;
+    color: white;
+    padding: 16px 28px;
+    border-radius: 7px;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.button:hover {
+    background: #c9141b;
+    transform: translateY(-2px);
+}
+
+/* VIN */
+
+.vin-section {
+    padding: 28px 5%;
+    background: white;
+}
+
+.vin-box {
+    max-width: 1500px;
+    margin: auto;
+    background: #f5f8fb;
+    border: 1px solid #dce2e8;
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.vin-title {
+    min-width: 360px;
+}
+
+.vin-title h2 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.vin-title p {
+    color: #59636d;
+    line-height: 1.5;
+}
+
+.vin-search {
+    flex: 1;
+    display: flex;
+    gap: 12px;
+}
+
+.vin-search input {
+    flex: 1;
+    height: 52px;
+    border: 1px solid #ccd4dc;
+    border-radius: 7px;
+    padding: 0 18px;
+    font-size: 16px;
+    outline: none;
+}
+
+.vin-search input:focus {
+    border-color: #ed1c24;
+}
+
+/* SERVICES */
+
+.services {
+    padding: 55px 5%;
+    background: #f4f5f7;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 35px;
+}
+
+.cards {
+    max-width: 1500px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 28px;
+    min-height: 220px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.08);
+    transition: .2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-icon {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #606970;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.more {
+    color: #ed1c24;
+    font-weight: bold;
+}
+
+/* ADVANTAGES */
+
+.advantages {
+    background: #080b0f;
+    color: white;
+    padding: 38px 5%;
+}
+
+.advantages-inner {
+    max-width: 1500px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.4fr repeat(4, 1fr);
+    align-items: center;
+    gap: 20px;
+}
+
+.advantages h2 {
+    font-size: 28px;
+}
+
+.advantages h2 span {
+    color: #ed1c24;
+}
+
+.advantage {
+    border-left: 1px solid #30343a;
+    padding-left: 25px;
+}
+
+.advantage strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.advantage span {
+    color: #bfc3c7;
+    font-size: 14px;
+}
+
+/* CONTACT */
+
+.contact {
+    background: white;
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.contact p {
+    color: #626a72;
+    margin-bottom: 25px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #050608;
+    color: #858b91;
+    text-align: center;
+    padding: 22px;
+    font-size: 14px;
+}
+
+/* MOBILE */
+
+@media (max-width: 1000px) {
+
+    header {
+        height: auto;
+        padding: 18px 5%;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .header-phone {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 46px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .vin-box {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .vin-title {
+        min-width: auto;
+    }
+
+    .advantages-inner {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .logo {
+        font-size: 25px;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .hero {
+        min-height: 500px;
+        padding: 40px 6%;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero h2 {
+        font-size: 19px;
+    }
+
+    .features {
+        gap: 18px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .vin-search {
+        flex-direction: column;
+    }
+
+    .advantages-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .advantage {
+        border-left: none;
+        border-top: 1px solid #30343a;
+        padding: 15px 0;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <div class="logo">
-        <span>СЛАВ</span>АВТО
+
+    <div>
+        <div class="logo">
+            <span class="white">Слава</span><span class="red">Авто</span>
+        </div>
+        <div class="logo-sub">Автозапчастини та СТО</div>
     </div>
 
     <nav>
-        <a href="#services">Послуги</a>
+        <a href="#home">Головна</a>
+        <a href="#services">Послуги СТО</a>
         <a href="#parts">Запчастини</a>
-        <a href="#contact">Контакти</a>
+        <a href="#vin">Підбір по VIN</a>
+        <a href="#about">Про нас</a>
+        <a href="#contacts">Контакти</a>
     </nav>
+
+    <div class="header-phone">
+        <span class="phone-icon">☎</span>
+        <span>Зателефонувати</span>
+    </div>
+
 </header>
 
-<section class="hero">
-    <h1>СЛАВ<span>АВТО</span></h1>
-    <p>Автозапчастини та професійний ремонт автомобілів</p>
-    <a href="#contact" class="button">Зв'язатися з нами</a>
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>
+            <span class="white">Слава</span><span class="red">Авто</span>
+        </h1>
+
+        <h2>
+            Автозапчастини та професійний ремонт автомобілів
+        </h2>
+
+        <div class="features">
+
+            <div class="feature">
+                <span class="feature-icon">⚙</span>
+                <span>Якісні<br>запчастини</span>
+            </div>
+
+            <div class="feature">
+                <span class="feature-icon">✓</span>
+                <span>Гарантія<br>на роботи</span>
+            </div>
+
+            <div class="feature">
+                <span class="feature-icon">🔧</span>
+                <span>Досвідчені<br>майстри</span>
+            </div>
+
+            <div class="feature">
+                <span class="feature-icon">🚗</span>
+                <span>Швидке<br>обслуговування</span>
+            </div>
+
+        </div>
+
+        <a href="#vin" class="button">
+            Підібрати запчастини →
+        </a>
+
+    </div>
+
 </section>
 
-<section class="section" id="services">
-    <h2>Наші послуги</h2>
+
+<section class="vin-section" id="vin">
+
+    <div class="vin-box">
+
+        <div class="vin-title">
+
+            <h2>Підбір запчастин за VIN</h2>
+
+            <p>
+                Знайдіть необхідні запчастини для свого автомобіля
+                за VIN-кодом, артикулом або назвою.
+            </p>
+
+        </div>
+
+        <div class="vin-search">
+
+            <input
+                type="text"
+                placeholder="Введіть VIN-код (17 символів)"
+                maxlength="17"
+            >
+
+            <button class="button">
+                🔍 Знайти
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="services" id="services">
+
+    <h2 class="section-title">Наші послуги</h2>
 
     <div class="cards">
+
         <div class="card">
+
+            <div class="card-icon">🔧</div>
+
             <h3>СТО</h3>
-            <p>Діагностика та ремонт автомобілів.</p>
+
+            <p>
+                Діагностика та ремонт автомобілів
+                будь-яких марок.
+            </p>
+
+            <span class="more">Детальніше →</span>
+
         </div>
 
-        <div class="card">
+
+        <div class="card" id="parts">
+
+            <div class="card-icon">⚙️</div>
+
             <h3>Автозапчастини</h3>
-            <p>Підбір оригінальних запчастин та якісних аналогів.</p>
+
+            <p>
+                Оригінальні запчастини та якісні
+                аналоги для вашого автомобіля.
+            </p>
+
+            <span class="more">Детальніше →</span>
+
         </div>
+
 
         <div class="card">
+
+            <div class="card-icon">🛢️</div>
+
             <h3>ТО автомобіля</h3>
-            <p>Заміна мастила, фільтрів та технічне обслуговування.</p>
+
+            <p>
+                Заміна мастила, фільтрів та повне
+                технічне обслуговування.
+            </p>
+
+            <span class="more">Детальніше →</span>
+
         </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">🔍</div>
+
+            <h3>Діагностика</h3>
+
+            <p>
+                Сучасна діагностика автомобіля
+                та точне визначення несправностей.
+            </p>
+
+            <span class="more">Детальніше →</span>
+
+        </div>
+
     </div>
+
 </section>
 
-<section class="section" id="parts">
-    <h2>Автозапчастини</h2>
+
+<section class="advantages" id="about">
+
+    <div class="advantages-inner">
+
+        <h2>
+            Чому обирають <span>СлаваАвто?</span>
+        </h2>
+
+        <div class="advantage">
+            <strong>✓ Гарантія</strong>
+            <span>На виконані роботи</span>
+        </div>
+
+        <div class="advantage">
+            <strong>₴ Доступні ціни</strong>
+            <span>Чесна вартість</span>
+        </div>
+
+        <div class="advantage">
+            <strong>◷ Оперативна робота</strong>
+            <span>Економимо ваш час</span>
+        </div>
+
+        <div class="advantage">
+            <strong>★ Індивідуальний підхід</strong>
+            <span>До кожного клієнта</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="contact" id="contacts">
+
+    <h2>СлаваАвто</h2>
+
     <p>
-        Підберемо необхідні запчастини за автомобілем,
-        VIN-кодом або артикулом.
+        Автозапчастини та професійне обслуговування автомобілів
     </p>
+
+    <a href="#vin" class="button">
+        Підібрати запчастину
+    </a>
+
 </section>
 
-<section class="section contact" id="contact">
-    <h2>Контакти</h2>
-
-    <p>📍 Слов'янськ</p>
-    <br>
-    <p>📞 Телефон: додамо ваш номер</p>
-    <br>
-    <a href="tel:+380000000000" class="button">Зателефонувати</a>
-</section>
 
 <footer>
-    © 2026 СЛАВАВТО. Автозапчастини та СТО.
+
+    © 2026 СлаваАвто — автозапчастини та СТО
+
 </footer>
 
 </body>
