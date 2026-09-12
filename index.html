@@ -864,19 +864,105 @@ function setType(button,type){
 
 function searchParts(){
 
-    const value =
-        document.getElementById("searchInput").value.trim();
+    const input = document.getElementById("searchInput");
+    const value = input.value.trim();
 
     if(!value){
         alert("Введіть дані для пошуку.");
         return;
     }
 
-    alert(
-        "Пошук " + searchType +
-        ": " + value +
-        "\n\nФункцію реального підбору запчастин підключимо наступним етапом."
-    );
+    // Контейнер результатов
+    let results = document.getElementById("searchResults");
+
+    if(!results){
+        results = document.createElement("div");
+        results.id = "searchResults";
+        results.style.marginTop = "25px";
+        results.style.background = "#ffffff";
+        results.style.borderRadius = "12px";
+        results.style.padding = "25px";
+        results.style.boxShadow = "0 4px 20px rgba(0,0,0,.08)";
+
+        const vinSection = document.getElementById("vin");
+        vinSection.appendChild(results);
+    }
+
+    // Пока демонстрационные данные
+    const parts = [
+        {
+            article: "OC90",
+            name: "Масляний фільтр",
+            brand: "MAHLE",
+            stock: "4 шт.",
+            price: "450 грн"
+        },
+        {
+            article: "KL313",
+            name: "Паливний фільтр",
+            brand: "MANN",
+            stock: "2 шт.",
+            price: "680 грн"
+        },
+        {
+            article: "LX1573",
+            name: "Повітряний фільтр",
+            brand: "MAHLE",
+            stock: "3 шт.",
+            price: "650 грн"
+        }
+    ];
+
+    results.innerHTML = `
+        <h2 style="margin-top:0;">
+            Результат пошуку
+        </h2>
+
+        <p style="color:#666;">
+            Запит: <strong>${value}</strong>
+        </p>
+
+        <div style="overflow-x:auto;">
+            <table style="width:100%; border-collapse:collapse; margin-top:15px;">
+                <thead>
+                    <tr style="background:#f3f5f7;">
+                        <th style="padding:12px; text-align:left;">Артикул</th>
+                        <th style="padding:12px; text-align:left;">Запчастина</th>
+                        <th style="padding:12px; text-align:left;">Бренд</th>
+                        <th style="padding:12px; text-align:left;">Наявність</th>
+                        <th style="padding:12px; text-align:left;">Ціна</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    ${parts.map(part => `
+                        <tr style="border-bottom:1px solid #eee;">
+                            <td style="padding:12px;">
+                                <strong>${part.article}</strong>
+                            </td>
+                            <td style="padding:12px;">
+                                ${part.name}
+                            </td>
+                            <td style="padding:12px;">
+                                ${part.brand}
+                            </td>
+                            <td style="padding:12px;">
+                                ${part.stock}
+                            </td>
+                            <td style="padding:12px;">
+                                <strong>${part.price}</strong>
+                            </td>
+                        </tr>
+                    `).join("")}
+                </tbody>
+            </table>
+        </div>
+    `;
+
+    results.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
 }
 
 </script>
